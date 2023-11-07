@@ -7,14 +7,14 @@
 Add a comment with your Emory ID below
 -- SQLBook: Code
 -- Write your own code
-
+-- EmoryID : 2432239
 -- SQLBook: Markup
 <font size = "5">
 
 (a) Create a new SQL database called formula1
 -- SQLBook: Code
 -- Write your own code
-
+CREATE DATABASE formula1
 -- SQLBook: Markup
 
 <font size = "5">
@@ -69,8 +69,9 @@ Hints:
 - In SQL you only need a single equality "="
 - In SQL use single quotes for logical conditions with strings '...'
 -- SQLBook: Code
+-- Active: 1698696578774@@127.0.0.1@5432@formula1
 -- Write your own code
-
+SELECT * FROM drivers WHERE nationality = 'American' ORDER BY surname ASC;
 -- SQLBook: Markup
 <font size = "5">
 
@@ -86,7 +87,7 @@ HINT: Include "driverId" in quotations since it has a mix of <br>
 upper case and lower case letters
 -- SQLBook: Code
 -- Write your own code
-
+SELECT COUNT(DISTINCT "driverId") AS distinct_drivers FROM drivers
 -- SQLBook: Markup
 <font size = "5">
 
@@ -102,7 +103,7 @@ HINT: Include "driverId" in quotations since it has a mix of <br>
 upper case and lower case letters
 -- SQLBook: Code
 -- Write your own code
-
+SELECT AVG(milliseconds) AS average_milliseconds FROM lap_times GROUP BY "driverId" ORDER BY average_milliseconds
 -- SQLBook: Markup
 <font size = "5">
 
@@ -119,3 +120,4 @@ HINT: Include "driverId" in quotations since it has a mix of <br>
 upper case and lower case letters
 -- SQLBook: Code
 -- Write your own code
+SELECT * FROM lap_times LEFT JOIN drivers ON lap_times."driverId" = drivers."driverId"
